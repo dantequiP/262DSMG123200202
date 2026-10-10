@@ -10,10 +10,6 @@ import org.junit.Test
 
 fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.onNodeWithStringId(
     @StringRes id: Int
-): SemanticsNodeInteraction = onNodeWithText(activity.getString(id))
+): SemanticsNodeInteraction =
+    onNodeWithText(activity.getString(id))
 
-@Test
-fun cupcakeNavHost_verifyBackNavigationNotShownOnStartOrderScreen() {
-    val backText = composeTestRule.activity.getString(R.string.back_button)
-    composeTestRule.onNodeWithContentDescription(backText).assertDoesNotExist()
-}
